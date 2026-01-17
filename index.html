@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DEAR MUSIC_co — NEXT DEAR</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--dark:#050207;
+--violet:#6b3fa0;
+--soft:#c8b6ff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:'Inter',sans-serif;
+background:var(--dark);
+color:#f2eefe;
+overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:1.2rem 3rem;
+background:rgba(5,2,7,.7);
+backdrop-filter:blur(6px);
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:999;
+}
+nav a{
+color:#f2eefe;
+text-decoration:none;
+margin-left:2rem;
+letter-spacing:.15em;
+font-size:.8rem;
+}
+
+/* SECTIONS */
+section{
+min-height:100vh;
+padding:8rem 10vw;
+}
+
+/* HERO */
+.hero{
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+.hero h1{
+font-family:'Playfair Display';
+font-size:4rem;
+letter-spacing:.3em;
+}
+.hero p{
+margin-top:2rem;
+opacity:.8;
+}
+
+/* AGENCY */
+.agency p{
+max-width:720px;
+margin-top:2rem;
+line-height:1.8;
+}
+
+/* ALBUM */
+.album{
+background:
+linear-gradient(rgba(5,2,7,.75),rgba(5,2,7,.95)),
+url("images/group_violet.jpg") center/cover no-repeat;
+text-align:center;
+}
+.album h2{
+font-family:'Playfair Display';
+font-size:2.5rem;
+}
+
+/* MEMBERS */
+.members-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:1.5rem;
+margin-top:3rem;
+}
+.member-card{
+padding:2rem;
+background:rgba(255,255,255,.04);
+border-radius:16px;
+text-align:center;
+cursor:pointer;
+transition:.3s;
+}
+.member-card:hover{
+background:rgba(255,255,255,.08);
+}
+
+/* MODAL */
+.modal{
+position:fixed;
+inset:0;
+background:rgba(5,2,7,.95);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:2000;
+}
+
+.modal-content{
+max-width:900px;
+width:90%;
+padding:3rem;
+background:#0b0610;
+border-radius:24px;
+display:flex;
+gap:3rem;
+align-items:center;
+}
+
+.modal-content img{
+max-width:300px;
+border-radius:18px;
+flex-shrink:0;
+}
+
+#memberText{
+text-align:left;
+line-height:1.7;
+}
+
+.modal-buttons{
+margin-top:2rem;
+}
+.modal-buttons button{
+margin-right:.6rem;
+padding:.6rem 1.8rem;
+border-radius:999px;
+border:1px solid var(--soft);
+background:none;
+color:var(--soft);
+cursor:pointer;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.modal-content{
+flex-direction:column;
+text-align:center;
+}
+#memberText{
+text-align:center;
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div>DEAR MUSIC_co</div>
+<div>
+<a href="#agency">Agency</a>
+<a href="#album">Album</a>
+<a href="#members">Members</a>
+</div>
+</nav>
+
+<section class="hero">
+<div>
+<h1>NEXT DEAR</h1>
+<p>An era before the bloom</p>
+</div>
+</section>
+
+<section id="agency" class="agency">
+<h2>The Agency</h2>
+<p>
+DEAR MUSIC_co is a creative agency built around emotional honesty,
+dark elegance and artistic freedom. We do not shape idols —
+we awaken what already exists. Our vision blends music, fashion
+and storytelling into living eras.
+</p>
+</section>
+
+<section id="album" class="album">
+<h2>Album I — BLOOD IN BLOOM</h2>
+<p style="max-width:720px;margin:2rem auto">
+BLOOD IN BLOOM tells the story of growth through pain.
+A violet world where vulnerability becomes power,
+and every scar learns how to bloom.
+</p>
+</section>
+
+<section id="members">
+<h2>Members</h2>
+
+<div class="members-grid">
+<div class="member-card" onclick="openMember(0)">Yeinna</div>
+<div class="member-card" onclick="openMember(1)">Yunna</div>
+<div class="member-card" onclick="openMember(2)">Eunjin</div>
+<div class="member-card" onclick="openMember(3)">Naka</div>
+<div class="member-card" onclick="openMember(4)">Haeun</div>
+<div class="member-card" onclick="openMember(5)">Ivy</div>
+</div>
+</section>
+
+<!-- MEMBER MODAL -->
+<div class="modal" id="memberModal">
+<div class="modal-content">
+<img id="memberImg">
+<div>
+<div id="memberText"></div>
+<div class="modal-buttons">
+<button onclick="prevMember()">Previous</button>
+<button onclick="nextMember()">Next</button>
+<button onclick="closeModal()">Close</button>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+const members=[
+{
+img:"images/yeinna.jpg",
+text:`<h3>Yeinna</h3>
+<p>
+Birth name : Yang Yeinna<br>
+Age : 16<br>
+MBTI : ENFP<br>
+Nationality : FR / US<br>
+Face claim : Sooin<br>
+Color : Red<br>
+Love meeting people
+</p>`
+},
+{
+img:"images/yunna.jpg",
+text:`<h3>Yunna</h3>
+<p>
+Birth name : Hong Yuna<br>
+Age : 14<br>
+MBTI : ISFJ-T<br>
+Nationality : FR / US<br>
+Color : Yellow
+</p>`
+},
+{
+img:"images/eunjin.jpg",
+text:`<h3>Eunjin</h3>
+<p>
+Birth name : Moon Eunjin<br>
+Age : 17<br>
+MBTI : INFP<br>
+Nationality : FR / US<br>
+Color : White
+</p>`
+},
+{
+img:"images/naka.jpg",
+text:`<h3>Naka</h3>
+<p>
+Age : 14<br>
+Maknae<br>
+MBTI : INFP<br>
+Color : Grey
+</p>`
+},
+{
+img:"images/haeun.jpg",
+text:`<h3>Haeun</h3>
+<p>
+Age : 14<br>
+MBTI : ENFJ<br>
+Color : Violet
+</p>`
+},
+{
+img:"images/ivy.jpg",
+text:`<h3>Ivy</h3>
+<p>
+Age : 15<br>
+MBTI : INTJ<br>
+Nationality : US<br>
+Color : Black
+</p>`
+}
+];
+
+let current=0;
+
+function openMember(i){
+current=i;
+document.getElementById("memberImg").src=members[i].img;
+document.getElementById("memberText").innerHTML=members[i].text;
+document.getElementById("memberModal").style.display="flex";
+}
+
+function closeModal(){
+document.getElementById("memberModal").style.display="none";
+}
+
+function nextMember(){
+current=(current+1)%members.length;
+openMember(current);
+}
+
+function prevMember(){
+current=(current-1+members.length)%members.length;
+openMember(current);
+}
+</script>
+
+</body>
+</html>

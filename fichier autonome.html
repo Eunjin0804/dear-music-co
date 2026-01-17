@@ -1,0 +1,130 @@
+<!-- ====== ALBUM TRANSITION + PAGE BLOOD IN BLOOM (BLOC AUTONOME) ====== -->
+
+<style>
+/* Bouton Album sous Members */
+.album-btn {
+  margin: 32px auto 0;
+  display: block;
+  padding: 12px 34px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.5);
+  color: #f2e6ff;
+  letter-spacing: 3px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.album-btn:hover {
+  background: rgba(200,182,255,0.15);
+  box-shadow: 0 0 22px rgba(200,182,255,0.4);
+}
+
+/* Page Album */
+#album-page {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s ease;
+  pointer-events: none;
+  max-height: 0;
+  overflow: hidden;
+}
+
+#album-page.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  max-height: 5000px;
+}
+
+.album-wrapper {
+  margin-top: 120px;
+  text-align: center;
+  color: #e9dbff;
+  font-family: "Playfair Display", serif;
+}
+
+/* Image Album */
+.album-cover {
+  max-width: 420px;
+  width: 90%;
+  margin: 0 auto 60px;
+  border-radius: 16px;
+  box-shadow: 0 0 60px rgba(120,80,180,0.45);
+}
+
+/* Titres */
+.album-title {
+  font-size: 42px;
+  letter-spacing: 6px;
+  margin-bottom: 12px;
+}
+
+.album-sub {
+  font-size: 13px;
+  letter-spacing: 4px;
+  opacity: 0.7;
+  margin-bottom: 50px;
+}
+
+/* Texte */
+.album-text {
+  max-width: 720px;
+  margin: auto;
+  font-size: 15px;
+  line-height: 1.9;
+  opacity: 0.9;
+}
+</style>
+
+<!-- Bouton -->
+<button class="album-btn" onclick="openAlbum()">ALBUM</button>
+
+<!-- Page Album -->
+<section id="album-page">
+  <div class="album-wrapper">
+
+    <img
+      class="album-cover"
+      src="TON_IMAGE_BLOOD_IN_BLOOM.jpg"
+      alt="Blood In Bloom Album Cover"
+    />
+
+    <h2 class="album-title">BLOOD IN BLOOM</h2>
+    <div class="album-sub">NEXT DEAR</div>
+
+    <div class="album-text">
+      <p>
+        <strong>Blood In Bloom</strong> est un album de transformation.
+        Il raconte la douleur qui ne disparaît pas, mais qui fleurit.
+      </p>
+
+      <p>
+        La chanson titre explore la dualité entre fragilité et puissance :
+        le sang symbolise les blessures, la fleur représente la renaissance.
+      </p>
+
+      <p>
+        Dans cet album, <strong>NEXT DEAR</strong> affirme son identité :
+        élégante, sombre, émotionnelle, portée par une esthétique
+        mystérieuse et une narration intime.
+      </p>
+
+      <p>
+        Chaque piste est une confession.
+        Chaque silence est volontaire.
+        Rien n’est décoratif.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function openAlbum() {
+  document.getElementById("album-page").classList.add("active");
+  document.getElementById("album-page").scrollIntoView({ behavior: "smooth" });
+}
+</script>
+
+<!-- ====== FIN DU BLOC ====== -->

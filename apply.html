@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Apply — NEXT DEAR</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #2b124d, #050207 70%);
+  font-family: 'Inter', sans-serif;
+  color: #f3ecff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container */
+.apply-container {
+  width: 100%;
+  max-width: 520px;
+  background: rgba(12, 6, 24, 0.65);
+  backdrop-filter: blur(18px);
+  border-radius: 26px;
+  padding: 3.5rem;
+  box-shadow:
+    0 0 30px rgba(180, 120, 255, 0.25),
+    0 0 80px rgba(120, 80, 255, 0.15);
+  animation: fadeUp 1.2s ease forwards;
+}
+
+/* Title */
+.apply-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  text-align: center;
+  letter-spacing: 0.35em;
+  margin-bottom: 0.8rem;
+}
+
+.apply-subtitle {
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.75;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+/* Form */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.4rem;
+}
+
+.form-group label {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  opacity: 0.75;
+}
+
+.form-group input,
+.form-group textarea {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(200,160,255,0.25);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  color: #f5efff;
+  font-size: 0.85rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #cfa8ff;
+  box-shadow: 0 0 18px rgba(200,160,255,0.35);
+}
+
+/* Textarea */
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+/* Button */
+.apply-btn {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0.9rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #e2c6ff, #9f6bff);
+  color: #2a0a44;
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  font-weight: 600;
+  transition: all 0.4s ease;
+}
+
+.apply-btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 25px rgba(200,160,255,0.6),
+    0 0 60px rgba(150,90,255,0.5);
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="apply-container">
+  <div class="apply-title">APPLY</div>
+  <div class="apply-subtitle">
+    This is not an audition.<br>
+    This is an awakening.
+  </div>
+
+  <form>
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" placeholder="Your name" required>
+    </div>
+
+    <div class="form-group">
+      <label>Age</label>
+      <input type="number" placeholder="Your age" required>
+    </div>
+
+    <div class="form-group">
+      <label>Location</label>
+      <input type="text" placeholder="City / Country" required>
+    </div>
+
+    <div class="form-group">
+      <label>Phone / WhatsApp</label>
+      <input type="text" placeholder="+33 ..." required>
+    </div>
+
+    <div class="form-group">
+      <label>Why NEXT DEAR?</label>
+      <textarea placeholder="Write from the heart..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Experience (optional)</label>
+      <textarea placeholder="Dance, vocal, training..."></textarea>
+    </div>
+
+    <button class="apply-btn" type="submit">
+      SEND APPLICATION
+    </button>
+  </form>
+</div>
+
+</body>
+</html>

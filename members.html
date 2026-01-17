@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Members — DEAR MUSIC_co</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#050207;
+  --violet:#7a4bd9;
+  --soft:#c8b6ff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  background:var(--bg);
+  color:#f2eefe;
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+}
+
+/* ===== HEADER ===== */
+header{
+  text-align:center;
+  padding:4rem 2rem 2rem;
+}
+header h1{
+  font-family:'Playfair Display';
+  letter-spacing:.35em;
+  font-size:2.2rem;
+}
+
+/* ===== MEMBERS LIST ===== */
+.members-list{
+  display:flex;
+  justify-content:center;
+  gap:2.5rem;
+  flex-wrap:wrap;
+  margin-top:3rem;
+}
+.member-name{
+  cursor:pointer;
+  letter-spacing:.25em;
+  font-size:.9rem;
+  opacity:.7;
+  transition:.3s;
+}
+.member-name:hover{
+  opacity:1;
+  color:var(--soft);
+}
+
+/* ===== MODAL ===== */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(5,2,7,.96);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+  animation:fadeIn .6s;
+}
+
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+.modal-content{
+  display:flex;
+  gap:3rem;
+  max-width:1000px;
+  width:90%;
+  padding:3rem;
+  background:#0b0612;
+  border-radius:26px;
+  box-shadow:0 0 60px rgba(122,75,217,.35);
+  animation:slideUp .7s;
+}
+
+@keyframes slideUp{
+  from{transform:translateY(60px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+
+.modal img{
+  width:320px;
+  border-radius:20px;
+  box-shadow:0 0 40px rgba(122,75,217,.45);
+}
+
+.modal-text{
+  max-height:70vh;
+  overflow-y:auto;
+}
+.modal-text h2{
+  font-family:'Playfair Display';
+  margin-bottom:1rem;
+}
+.modal-text h3{
+  margin-top:2rem;
+  color:var(--soft);
+  letter-spacing:.2em;
+  font-size:.8rem;
+}
+.modal-text p{
+  line-height:1.7;
+  margin-top:.6rem;
+  font-size:.9rem;
+  opacity:.9;
+}
+
+.close-btn{
+  margin-top:2.5rem;
+  padding:.7rem 2rem;
+  border-radius:999px;
+  border:1px solid var(--soft);
+  background:none;
+  color:var(--soft);
+  cursor:pointer;
+  letter-spacing:.2em;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>MEMBERS</h1>
+</header>
+
+<div class="members-list">
+  <div class="member-name" onclick="openMember(0)">YEINNA</div>
+  <div class="member-name" onclick="openMember(1)">YUNNA</div>
+  <div class="member-name" onclick="openMember(2)">EUNJIN</div>
+  <div class="member-name" onclick="openMember(3)">NAKA</div>
+  <div class="member-name" onclick="openMember(4)">HAEUN</div>
+  <div class="member-name" onclick="openMember(5)">IVY</div>
+</div>
+
+<!-- ===== MODAL ===== -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <img id="memberImg">
+    <div class="modal-text" id="memberText"></div>
+  </div>
+</div>
+<!-- ALBUM BUTTON BLOCK -->
+<div class="members-album-block">
+  <a href="album.html" class="members-album-btn">ALBUM</a>
+</div>
+
+<style>
+.members-album-block{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  margin-top:2.5rem;
+}
+
+.members-album-btn{
+  padding:.7rem 2.8rem;
+  border:1px solid #c8b6ff;
+  color:#c8b6ff;
+  text-decoration:none;
+  font-family:Inter,sans-serif;
+  letter-spacing:.35em;
+  font-size:.75rem;
+  border-radius:999px;
+  box-shadow:0 0 20px rgba(200,182,255,.45);
+  transition:.45s ease;
+}
+
+.members-album-btn:hover{
+  background:#c8b6ff;
+  color:#050207;
+  box-shadow:0 0 38px rgba(200,182,255,.9);
+}
+</style>
+
+
+<script>
+const members = [
+{
+img:"images/yeinna.jpg",
+html:`
+<h2>Yeinna (이옌나)</h2>
+<p><b>Birthday name:</b> Yang Yeinna<br>
+<b>Age:</b> 16<br>
+<b>MBTI:</b> ENFP<br>
+<b>Nationality:</b> FR / US<br>
+<b>Face claim:</b> Sooin</p>
+
+<h3>IDENTITY</h3>
+<p>Warm and open-hearted, Yeinna loves meeting people. Her energy is defined by the color red and the seal symbol 🦭.</p>
+
+<h3>ABOUT ME</h3>
+<p>She enjoys sushi and lasagna, plays the bass, and naturally takes the role of the oldest child. Helping others comes instinctively to her.</p>
+
+<h3>MESSAGE</h3>
+<p>“We will never stop bragging — to the next us, dear.” 🤍</p>
+`
+},
+{
+img:"images/Yuna.jpg",
+html:`
+<h2>Yunna (유나)</h2>
+<p><b>Birthday name:</b> Hong Yuna<br>
+<b>Age:</b> 14<br>
+<b>MBTI:</b> ISFJ-T<br>
+<b>Nationality:</b> FR / US<br>
+<b>Face claim:</b> Jisoo</p>
+
+<h3>IDENTITY</h3>
+<p>Introverted yet cheerful, Yunna shines with a yellow aura ☀️. Hardworking and gentle by nature.</p>
+
+<h3>ABOUT ME</h3>
+<p>Sushi lover, video editor, singer, dancer and artist. Always in a good mood and passionate about creative expression.</p>
+
+<h3>MESSAGE</h3>
+<p>“I hope our group will be a ray of sunshine for you.” ☀️✨</p>
+`
+},
+{
+img:"images/eunjin.jpg",
+html:`
+<h2>Eunjin (은진)</h2>
+<p><b>Birthday name:</b> Moon Eunjin<br>
+<b>Age:</b> 17<br>
+<b>MBTI:</b> INFP<br>
+<b>Nationality:</b> FR / US<br>
+<b>Face claim:</b> Chaewon</p>
+
+<h3>IDENTITY</h3>
+<p>A loud introvert with a dual personality. Her symbol is the swan 🦢 and her color is white.</p>
+
+<h3>ABOUT ME</h3>
+<p>Very talkative and hardworking, Eunjin plays guitar and writes her own songs. Lasagna is her comfort food.</p>
+
+<h3>MESSAGE</h3>
+<p>“I hope we’ll get along well — to the next us, dear.” 🤍</p>
+`
+},
+{
+img:"images/naka.jpg",
+html:`
+<h2>Naka (나카)</h2>
+<p><b>Birthday name:</b> Kim Naka<br>
+<b>Age:</b> 14<br>
+<b>Position:</b> Maknae<br>
+<b>MBTI:</b> INFP<br>
+<b>Nationality:</b> FR / US<br>
+<b>Face claim:</b> Yeji</p>
+
+<h3>IDENTITY</h3>
+<p>Grey toned with a musical soul 🎶.</p>
+
+<h3>ABOUT ME</h3>
+<p>Dancer performing at Arkea Arena, plushie lover, always here for others and deeply grateful to be part of the group.</p>
+
+<h3>MESSAGE</h3>
+<p>“Please wake up in our world — you will thank us.” 🤍</p>
+`
+},
+{
+img:"images/haeun.jpg",
+html:`
+<h2>Haeun (헤은)</h2>
+<p><b>Birthday name:</b> Seo Haeun<br>
+<b>Age:</b> 14<br>
+<b>MBTI:</b> ENFJ<br>
+<b>Nationality:</b> FR / BE<br>
+<b>Face claim:</b> Rora</p>
+
+<h3>IDENTITY</h3>
+<p>Extroverted, perfectionist and caring. Violet energy with a butterfly symbol 🦋.</p>
+
+<h3>ABOUT ME</h3>
+<p>Loves sushi and ravioles, horse riding, singing, dancing and skiing. Always puts others first.</p>
+
+<h3>MESSAGE</h3>
+<p>“I hope this group will comfort you at your lowest.” 🦋</p>
+`
+},
+{
+img:"images/ivy.jpg",
+html:`
+<h2>Ivy (아이비)</h2>
+<p><b>Birthday name:</b> Eve<br>
+<b>Age:</b> 13<br>
+<b>MBTI:</b> INTJ-T<br>
+<b>Nationality:</b> FR / US<br>
+<b>Face claim:</b> Asa</p>
+
+<h3>IDENTITY</h3>
+<p>Blue aura, fox symbol 🦊, Scorpio.</p>
+
+<h3>ABOUT ME</h3>
+<p>Loves singing, owns two kittens, inspired by Babymonster, Le Sserafim, Aespa, Enhypen and more.</p>
+
+<h3>MESSAGE</h3>
+<p>“I can’t wait to be part of an ACE group and create songs together.” 🤍</p>
+`
+}
+];
+
+function openMember(i){
+  document.getElementById("memberImg").src = members[i].img;
+  document.getElementById("memberText").innerHTML = members[i].html;
+  document.getElementById("modal").style.display="flex";
+}
+
+document.getElementById("modal").onclick = () => {
+  document.getElementById("modal").style.display="none";
+}
+</script>
+
+</body>
+</html>
+
+
+
+
